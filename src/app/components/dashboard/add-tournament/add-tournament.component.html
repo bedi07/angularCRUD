@@ -1,0 +1,32 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <div class="container box" >
+   <h2>Add Tournament</h2>
+    <form [formGroup]="addForm" >
+      <div class="form-group">
+        <label for="TournamentName">TournamentName:</label>
+        <input type="text" formControlName="TournamentName" placeholder="TournamentName" name="tournamentName" class="form-control" id="tournamentName">
+        <div *ngIf="formControls.TournamentName.touched && formControls.TournamentName.invalid" class=" text-danger">
+          <div *ngIf="formControls.TournamentName.errors.required">TournamentName is required </div>
+         </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="StartDate">StartDate:</label>
+        <input type="date" formControlName="StartDate" placeholder="StartDate" name="startDate" class="form-control" id="startDate">
+        <div *ngIf="formControls.StartDate.touched && formControls.StartDate.invalid" class=" text-danger">
+          <div *ngIf="formControls.StartDate.errors.required">StartDate is required </div>
+         </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="EndDate">EndDate:</label>
+        <input type="date"formControlName="EndDate" placeholder="EndDate" name="endDate" class="form-control" id="endDate">
+        <div *ngIf="formControls.EndDate.touched && formControls.EndDate.invalid" class=" text-danger">
+          <div *ngIf="formControls.EndDate.errors.required">EndDate is required </div>
+         </div>
+      </div>
+  
+      <button type="submit"  class="btn btn-primary" [disabled]="!addForm.valid" (click)="onSubmit()">Add New Details</button>
+    </form>
+  </div>
+  </div>

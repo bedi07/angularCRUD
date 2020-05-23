@@ -1,0 +1,28 @@
+<div class = "container-fuid">
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-lg-12">
+<kendo-grid [data]="gridData">
+  <kendo-grid-column field="TournamentName" title="Name" width="25%" >
+  </kendo-grid-column>
+    <kendo-grid-column field="StartDate" title="StartDate" width="25%"  filter="date" format="{0:d}">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            {{ dataItem.StartDate | date:'dd-MM-yyyy' }}
+        </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="EndDate" title="EndDate" width="25%"  filter="date" format="{0:d}">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            {{ dataItem.EndDate | date:'dd-MM-yyyy' }}
+        </ng-template>
+    </kendo-grid-column>
+   <kendo-grid-column width="20%">
+        <ng-template kendoGridCellTemplate  let-dataItem>
+           <button kendoGridRemoveCommand (click)="onRemove(gridData)">Remove</button>
+        </ng-template>
+    </kendo-grid-column>
+   
+</kendo-grid>
+<button kendoButton class="btn btn-primary addBtn" (click)="addTournament()" >Add New Tournament</button>
+
+</div>
+</div>
+</div>

@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand-lg navStyle">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+       <div class="navbar-nav">
+       <a class="nav-item nav-link active" [routerLink]="'tournamentsetup'">{{navList[0]}}</a>
+         <a class="nav-item nav-link" [routerLink]="'teamsetup'">{{navList[1]}}</a>
+         <a class="nav-item nav-link" [routerLink]="'fixersetup'">{{navList[2]}}</a>
+     </div>
+     <a class="nav-item nav-link text-right ml-auto mr-1" (click) = "onBack()">
+       <span class="material-icons">exit_to_app</span></a>
+     </div>
+   </nav>
+   <br>
+ <router-outlet></router-outlet>

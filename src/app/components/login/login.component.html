@@ -1,0 +1,29 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div class="container box">
+  <h2>Login In</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="form-group">
+       <input  type="email"
+         class="form-control" formControlName="email"
+         id="email" placeholder="Enter Email " name="email">
+         <div *ngIf="formControls.email.touched && formControls.email.invalid" class=" text-danger">
+          <div *ngIf="formControls.email.errors.required">Fill Email Address</div>
+          <div *ngIf="formControls.email.errors.pattern">EmailId must have com</div>
+         </div>
+     </div>
+     <div class="form-group">
+         <input  type="password"
+           class="form-control" formControlName="password"
+           id="password" placeholder="Enter Password" name="password">
+           <div *ngIf="formControls.password.touched && formControls.password.invalid" class=" text-danger">
+            <div *ngIf="formControls.password.errors.required">Password is required </div>
+            <div *ngIf="formControls.password.errors.pattern">Must be uppercase , lowercase ,digit and special character</div>
+       </div>
+       </div>
+     <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Log In</button>
+     <div fxLayout="row"><alert></alert></div>
+     <div class="algnlft"> <span>New here? </span> <span> <a routerLink="/register"> Sign In !!!</a></span></div>
+
+    </form>
+  </div>
+ </div>

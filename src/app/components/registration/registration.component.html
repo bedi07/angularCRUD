@@ -1,0 +1,67 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <div class="container box">
+     <h2>Registration</h2>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+         <div class="form-group">
+            <input  type="text"
+              class="form-control" formControlName="name"
+              id="name" placeholder="Enter Name" name="name">
+              <div *ngIf="formControls.name.touched && formControls.name.invalid" class=" text-danger">
+               <div *ngIf="formControls.name.errors.required">Name is required </div>
+              </div>
+          </div>
+        <div class="form-group" >
+         <input  type="email"
+            class="form-control" formControlName="email"
+            id="email" placeholder="Enter Email Address" name="email">
+            <div *ngIf="formControls.email.touched && formControls.email.invalid" class=" text-danger">
+               <div *ngIf="formControls.email.errors.required"> Email is required </div>
+               <!-- <div *ngIf="formControls.email.errors.email">EmailId is incorrect</div> -->
+               <div *ngIf="formControls.email.errors.pattern">Invalid Email Address</div>
+         </div>
+        </div>
+        <div class="form-group" >
+         <input  type="text" size="10"
+           class="form-control" formControlName="phoneNumber"
+           id="phoneNumber" placeholder="Enter ContactNumber" name="phoneNumber">
+           <div *ngIf="formControls.phoneNumber.touched && formControls.phoneNumber.invalid" class="text-danger">
+            <div *ngIf="formControls.phoneNumber.errors.required">Phone Number is required </div>
+            <div *ngIf="formControls.phoneNumber.errors.pattern">Invalid Phone Number </div>
+
+        </div>
+       </div>
+       <div class="form-group" >
+         <input  type="date"
+           class="form-control" formControlName="dateofBirth"
+           id="dateofBirth" placeholder="Enter DateOfBirth" name="dateofBirth">
+            <div *ngIf="formControls.dateofBirth.touched && formControls.dateofBirth.invalid" class="text-danger">
+            <div *ngIf="formControls.dateofBirth.errors.required">DateofBirth is required </div>
+            <div *ngIf="formControls.dateofBirth.errors.dateOfBirth">DOB must be less than today's date</div>
+       </div>
+       </div>
+       <div class="form-group" >
+         <input  type="password"
+           class="form-control" formControlName="password"
+           id="password" placeholder="Enter Password" name="password">
+           <small id="passwordHelpInline" class="text-muted">
+            Must be 8-10 characters long.
+          </small>
+            <div *ngIf="formControls.password.touched && formControls.password.invalid" class="text-danger">
+            <div *ngIf="formControls.password.errors.pattern">Password must contain  </div>
+   
+       </div>
+       </div><div class="form-group" >
+         <input  type="password"
+           class="form-control" formControlName="cnfPassword"
+           id="cnfPassword" placeholder="Confirm Password" name="cnfPassword">
+            <div *ngIf="formControls.cnfPassword.touched && formControls.cnfPassword.invalid" class="text-danger">
+            <div *ngIf="formControls.cnfPassword.errors.mustMatch">Passwords must match</div>
+           
+       </div>
+       </div>
+        
+       <button type="submit" [disabled]="!registerForm.valid" class=" btn btn-primary">SignIn</button>
+    </form>
+    </div>
+    </div>
+  

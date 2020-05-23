@@ -1,0 +1,25 @@
+@import 'color';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+a{color:$white;font-size:larger;font-weight: 400;} 
+
+.login-wrapper {
+	height: 100%;
+	background:$bckgdcolor;
+}
+
+.form-control.ng-touched.ng-invalid{
+    border: 1px solid $error;
+	box-shadow: $errorShadow;
+ }
+ 
+ .btn-primary {
+	width: 100%;
+	font-size: larger;
+	padding: 10px;
+	&:disabled {
+		background-color:$disablecolor;
+		border: 1px solid $disablecolor;
+	}
+}
